@@ -1,0 +1,32 @@
+<html>
+  <head>
+  	<link href="/static/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="/static/css/style.css" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  	<title> Your Government, Your Voice </title>
+  </head>
+  <body >
+    <div class = 'base'><a href="/index" style = 'margin-left: 5'>Home</a> </div>
+
+<h1>Your Government, Your Voice</h1>
+    <p style = 'text-align: center; font-size: 18; font-weight: bold;'>Hold Government Accountable </p>
+    <form action="/reps"; method="post" name="address" style = 'text-align: center;'>
+    {{ form.hidden_tag() }}
+      <p>
+      Please enter your address: <br>
+      {{ form.address(size = 80) }}<br>
+      </p>
+      <p><input type="submit" value="Find your Legislators" style = 'stext-align: center;'></p>
+  </form>
+ <h2> Why call your legislators? </h2>
+ <p> Phone calls are known to be the most effective way to get in contact with members of government. You can urge them to support causes you care about, ask them to vote a certain way on legislation, thank or criticize them for their advocacy, and so on. Note that contacting your Congressional representative carries the most weight in federal government and that you can contact your state legislators to influence policies that directly affect you. Although you may not speak to your legislator directly, your thoughts on an issue are recorded and they will be notified about your call. </p>
+ <div id = 'footer'
+     <p> Built by Sathvik Nair </p>
+     </div>
+  </body>
+</html>
+
+
+    
