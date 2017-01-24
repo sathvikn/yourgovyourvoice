@@ -26,7 +26,7 @@ def json_converter(url):
     return json.loads(data)
 
 state = ''
-states = ['al', 'ak', 'az', 'ar','ca', 'co', 'ct', 'de','fl', 'ga', 'hi', 'id', 'il', 'in', 'ia', 'ks', 'ky', 'la', 'me', 'md', 'ma', 'mi', 'mn', 'ms', 'mo', 'mt','ne', 'nv','nh', 'nj','nm','ny','nc','nd','oh','ok','or','pa','ri','sc','sd','tn','tx','ut','vt','va','wa','wv','wi', 'wy']
+states = ['al', 'ak', 'az', 'ar','ca', 'co', 'ct', 'de', 'dc', 'fl', 'ga', 'hi', 'id', 'il', 'in', 'ia', 'ks', 'ky', 'la', 'me', 'md', 'ma', 'mi', 'mn', 'ms', 'mo', 'mt','ne', 'nv','nh', 'nj','nm','ny','nc','nd','oh','ok','or','pa','ri','sc','sd','tn','tx','ut','vt','va','wa','wv','wi', 'wy']
 assembly = [state for state in states if state == 'ca' or state == 'nj' or state == 'nv' or state == 'ny' or state == 'wi']
 delegates = [state for state in states if state == 'md' or state == 'va' or state == 'wv']
 legislature = ['ne']
