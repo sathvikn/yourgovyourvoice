@@ -9,7 +9,7 @@ from operator import itemgetter
 from datetime import datetime, timedelta
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'hard to guess'
+app.config['SECRET_KEY'] = '8N3s0cc(3sj'
 
 class AddressForm(Form):
     address = StringField('address', validators=[DataRequired()])
@@ -19,6 +19,7 @@ class FilterForm(Form):
 
 class BillForm(Form):
     bill_id = StringField('bill_id', validators = [DataRequired()])
+    
 def json_converter(url):
     http = urlopen(url)
     data = http.read().decode('utf-8')
