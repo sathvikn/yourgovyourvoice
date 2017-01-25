@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link href="/static/css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="/static/css/reps.css" rel="stylesheet">
+    <link href="/static/css/style.css" rel="stylesheet">
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="/static/js/bootstrap.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +13,9 @@
   </head>
   <body >
     <div class = 'base'><a href="/index" style = 'margin-left: 5'>Home</a> </div>
-    <div class = 'tl'>
+    <div class = 'container'>
+    <div class = 'row'>
+    <div class = 'col-md-6'>
     <h1> Congress </h1> 
     {% for c in congress %}
         {% if c.title == 'Rep' %}
@@ -33,8 +35,8 @@
         {% endif %}
         <p> Call At: <a href = 'tel:'{{c.phone}}> {{ c.phone }}</a></p>
     {% endfor %}
-</div>
-<div class = 'tr'>
+    </div>
+    <div class = 'col-md-6'>
      <h1> State </h1>
     {% for s in state_leg %}
         {% if s.chamber == 'Senate' %}
@@ -52,14 +54,18 @@
         <p>Party: {{ s.party }} </p>
         <p> Call At: <a href = 'tel:' {{s.offices[0].phone}}> {{ s.offices[0].phone }} </a></p>
     {% endfor %}
-   </div>
- <div class = 'bl'>
- <p> <a style = 'color: white; font-weight: bold; padding: 50px 30px 50px 80px;' href = 'congbills'> Active Congressional Legislation</a></p>
- <p> <a style = 'color: white; font-weight: bold; padding: 50px 30px 50px 80px;' href = 'statebills'> Active State Legislation</a></p>
+    </div>
  </div>
- <div class = 'br'>
- <h3 style = 'margin-left: 50'> What to Say </h3>
- <p style = 'margin-left: 50'> Hello, I'm [your name], a constituent from [your location]. [Why you're calling]. Thank you for your time. </p>
+ <div class = 'row'>
+ <div class = 'col-md-6' style = 'background-color: #3A2266;margin-top: 30px'>
+ <p> <a style = 'color: white; font-weight: bold;' href = 'congbills'> Active Congressional Legislation</a></p>
+ <p> <a style = 'color: white; font-weight: bold;' href = 'statebills'> Active State Legislation</a></p>
+ </div>
+ <div class = 'col-md-6'>
+ <h3 style = 'text-align: center'> What to Say </h3>
+ <p> Hello, I'm [your name], a constituent from [your location]. [Why you're calling]. Thank you for your time. </p>
+ </div>
+ </div>
  </div>
  <div id = 'footer'
      <p> Built by Sathvik Nair </p>
