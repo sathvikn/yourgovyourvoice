@@ -35,7 +35,7 @@
       <p><input type="submit" value="Learn More"></p>
   </form>
 {% for b in bills %}
-	<p> {{ b.title }} (ID: {{ b.id }})</p>
+	<p> <b> {{b.bill_id}}: </b>{{ b.title }} (ID: {{ b.id }})</p>
 {% endfor %}    
 <div id = 'footer'
      <p> Built by Sathvik Nair </p>

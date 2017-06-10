@@ -7,6 +7,10 @@ import json
 from urllib.request import urlopen
 from operator import itemgetter
 from datetime import datetime, timedelta
+import pyopenstates
+
+key = "3727b988-bc92-4560-808b-bb25daaa065a"
+pyopenstates.set_api_key(key)
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '8N3s0cc(3sj'
@@ -56,8 +60,7 @@ def reps():
     fed_url = "https://congress.api.sunlightfoundation.com" + "/legislators/locate?latitude=" + str(lat_long[0]) + "&longitude=" + str(lat_long[1])
     fed_json = json_converter(fed_url)
     cong = sorted([rep for rep in fed_json['results']], key = itemgetter('title'))
-
-    state_url = "https://openstates.org/api/v1/legislators/geo/?lat=" + str(lat_long[0]) + "&long=" + str(lat_long[1])
+    state_url = "https://openstates.org/api/v1/legislators/geo/?lat=" + str(lat_long[0]) + "&long=" + str(lat_long[1]) + "&apikey=" + key
     state_json = json_converter(state_url)
     state_leg = [rep for rep in state_json]
     global state
@@ -100,7 +103,7 @@ def congbills():
 
 @app.route('/statebills', methods = ['GET', 'POST'])
 def statebills():
-    state_leg_url = 'http://openstates.org/api/v1/bills/?state=' + state + '&updated_since=' + str(last_updated) + '&type=bill'
+    state_leg_url = 'http://openstates.org/api/v1/bills/?state=' + state + '&updated_since=' + str(last_updated) + '&type=bill' + "&apikey=" + key
     state_bills = json_converter(state_leg_url)
     
     form_1 = FilterForm()
@@ -136,9 +139,13 @@ def fedbilldetail():
 
 @app.route('/statebilldetail', methods = ['GET', 'POST'])
 def statebilldetail():
-    bill_id = request.form['bill_id']
+    """
     bill_url = 'http://openstates.org/api/v1/bills/'+bill_id
     bill_detail = json_converter(bill_url)
+    """
+    bill_id = request.form['bill_id']
+
+    bill_detail = pyopenstates.get_bill(uid = bill_id)
     return render_template('statebilldetail.html', title = 'State Bill Detail', b = bill_detail)
 
 if __name__ == "__main__":

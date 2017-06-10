@@ -14,7 +14,7 @@
   <body >
     <div class = 'base'><a href="/index" style = 'margin-left: 5'>Home</a> </div>
 
-	<h1> {{b.title}} </h1>
+	<h1> {{b.bill_id}}: {{b.title}} </h1>
 	<p>Summary: {{b.summary}} </p>
 	{% if b.chamber == 'upper' and b.action_dates.passed_upper or b.chamber == 'lower' and not b.action_dates.passed_lower %}
 		<p> Active in Lower Chamber </p>
