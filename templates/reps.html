@@ -34,6 +34,7 @@
         <p> Party: Independent </p>
         {% endif %}
         <p> Call At: <a href = 'tel:'{{c.phone}}> {{ c.phone }}</a></p>
+        <p> <a href = {{c.ballotpedia}}> Ballotpedia Profile </a> </p>
     {% endfor %}
     </div>
     <div class = 'col-md-6'>
@@ -53,6 +54,7 @@
         {% endif %}
         <p>Party: {{ s.party }} </p>
         <p> Call At: <a href = 'tel:' {{s.offices[0].phone}}> {{ s.offices[0].phone }} </a></p>
+        <p> <a href = {{s.ballotpedia}}> Ballotpedia Profile</a></p>
     {% endfor %}
     </div>
  </div>

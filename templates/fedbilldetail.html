@@ -14,7 +14,11 @@
   <body >
     <div class = 'base'><a href="/index" style = 'margin-left: 5'>Home</a> </div>
 
-  <h1> {{ bill_title }} </h1>
+  <h1> {% filter upper %}
+    {{b.bill_id}}: 
+    {% endfilter %}
+
+  {{ bill_title }} </h1>
   <p> Summary: {{ b.summary }} </p>
   <p> {% if b.history.house_passage_result == 'pass' and not b.history.senate_passage_result or not b.history.senate_passage_result%} 
       Active in Senate </p>

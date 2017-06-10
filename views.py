@@ -60,6 +60,8 @@ def reps():
     fed_url = "https://congress.api.sunlightfoundation.com" + "/legislators/locate?latitude=" + str(lat_long[0]) + "&longitude=" + str(lat_long[1])
     fed_json = json_converter(fed_url)
     cong = sorted([rep for rep in fed_json['results']], key = itemgetter('title'))
+    for c in cong:
+        c['ballotpedia'] = 'https://ballotpedia.org' + "/" + c['first_name'] + "_" + c["last_name"]
     state_url = "https://openstates.org/api/v1/legislators/geo/?lat=" + str(lat_long[0]) + "&long=" + str(lat_long[1]) + "&apikey=" + key
     state_json = json_converter(state_url)
     state_leg = [rep for rep in state_json]
@@ -74,6 +76,7 @@ def reps():
             l['chamber'] = 'House of Delegates'
         else: 
             l['chamber'] = 'House of Representatives'
+        l['ballotpedia'] = "https://ballotpedia.org/" + l['first_name'] + "_" + l["last_name"]
     return render_template('reps.html', title = 'Reps', congress = cong, state_leg = state_leg)
 
 @app.route('/congbills', methods = ['GET', 'POST'])
