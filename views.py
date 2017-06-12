@@ -7,10 +7,10 @@ import json
 from urllib.request import urlopen
 from operator import itemgetter
 from datetime import datetime, timedelta
-import pyopenstates
+from pyopenstates import *
 
 key = "3727b988-bc92-4560-808b-bb25daaa065a"
-pyopenstates.set_api_key(key)
+set_api_key(key)
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '8N3s0cc(3sj'
@@ -148,7 +148,7 @@ def statebilldetail():
     """
     bill_id = request.form['bill_id']
 
-    bill_detail = pyopenstates.get_bill(uid = bill_id)
+    bill_detail = get_bill(uid = bill_id)
     return render_template('statebilldetail.html', title = 'State Bill Detail', b = bill_detail)
 
 if __name__ == "__main__":
