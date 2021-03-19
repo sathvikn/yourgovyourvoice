@@ -1,7 +1,7 @@
 Flask==0.12.3
 Flask-WTF==0.12
 gunicorn == 19.6.0
-Jinja2==2.10.1
+Jinja2==2.11.3
 pyopenstates == 1.1.0
 Werkzeug==0.11.10
 WTForms==2.1
